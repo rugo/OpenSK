@@ -3,9 +3,6 @@ fuzz/corpus
 fuzz/coverage
 target/
 
-# Local installation of elf2tab.
-/elf2tab/
-
 # Prevent people from commiting sensitive files.
 /crypto_data/
 
