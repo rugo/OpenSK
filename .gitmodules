@@ -1,0 +1,11 @@
+[submodule "third_party/libtock-rs"]
+	path = third_party/libtock-rs
+	url = https://github.com/tock/libtock-rs
+	ignore = dirty
+[submodule "third_party/tock"]
+	path = third_party/tock
+	url = https://github.com/tock/tock
+	ignore = dirty
+[submodule "third_party/sphincs_wrap"]
+	path = third_party/sphincs_wrap
+	url = https://github.com/rugo/sphincs_wrapper.git

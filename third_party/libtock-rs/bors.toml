@@ -1,0 +1,4 @@
+status = [
+  "ci",
+  "size-diff",
+]

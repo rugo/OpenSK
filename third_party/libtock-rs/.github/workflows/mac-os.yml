@@ -1,0 +1,28 @@
+# This workflow verifies libtock-rs is usable on Mac OS.
+
+name: ci-mac-os
+
+# We run this workflow during pull request review, but not for Bors merges. We
+# can change this if the workflow is reasonably quick and reliable.
+on: pull_request
+
+jobs:
+  ci-mac-os:
+    runs-on: macos-10.15
+
+    steps:
+      # Clones a single commit from the libtock-rs repository. The commit cloned
+      # is a merge commit between the PR's target branch and the PR's source.
+      - name: Clone repository
+        uses: actions/checkout@v2
+
+      - name: Install arm-none-eabi-gcc
+        uses: fiam/arm-none-eabi-gcc@v1
+        with:
+          release: '10-2020-q4'
+
+      - name: Build and Test
+        run: |
+          cd "${GITHUB_WORKSPACE}"
+          LIBTOCK_PLATFORM=nrf52 cargo build -p libtock2 \
+            --target=thumbv7em-none-eabi
